@@ -8,7 +8,7 @@
 #include "boolean.h"
 
 #define Nil 0
-#define MaxEl 10
+#define MaxEl 1000
 /* Nil adalah stack dengan elemen kosong . */
 /* Karena indeks dalam bhs C dimulai 0 maka tabel dg indeks 0 tidak dipakai */
 

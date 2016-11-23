@@ -97,6 +97,10 @@ void konversikali(char *str, char *temp){
       j++;
 
     }
+  } else {
+    temp[j] = str[i];
+    i++;
+    j++;
   }
 }
 
@@ -145,6 +149,10 @@ void konversi(char *str, char *temp){
       i++;
       j++;
     }
+  } else {
+    temp[j] = str[i];
+    i++;
+    j++;
   }
 }
 
@@ -314,26 +322,31 @@ double hitung (char *str){
 
 
 double evaluasi(char * lang){
-  char *str = lang;
+  char *str = malloc(strlen(lang)*2);
+
+  str = lang;
+
 
   //mengkonversi susunan dan mengganti useless operator
   //Proses : menghapus tanda '-' bersebelahan, atau '+' bersebelahan serta mengubah ekspresi (-A) menjadi (0-A)
   //misal input ----9 maka dikonversi menjadi 9
   //misal input (-9) maka dikonversi menjadi (0-9)
 
+
+
   while (!(IsMinus(str))){
-    char *temp = (char *) malloc(100);
+    char *temp = (char *) malloc(strlen(lang)*2);
     konversi(str,temp);
     str = temp;
   }
 
-  char *temp = (char *) malloc(100);
+  char *temp = (char *) malloc(strlen(lang)*2);
   konversikali(str,temp);
-  char *temp1 = (char *) malloc(100);
+  char *temp1 = (char *) malloc(strlen(lang)*2);
   konversi(temp,temp1);
 
   //mengubah ekspresi menjadi postfix
-  char *postfix = (char*) malloc(100);
+  char *postfix = (char*) malloc(strlen(lang)*2);
   Postfix(temp1,postfix);
 
   //menampilkan hasil perhitungan ekspresi
